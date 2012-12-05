@@ -227,6 +227,7 @@
 		 * @return {undefined}
 		 */
 		init = function () {
+			var fragment = document.createDocumentFragment();
 			// ensure legacy browsers support html5 tags
 			document.createElement("nav");
 			document.createElement("article");
@@ -235,17 +236,18 @@
 			cover = document.createElement("div");
 			cover.setAttribute("id", "alertifycover");
 			cover.className = "alertify-cover alertify-hidden";
-			document.body.appendChild(cover);
+			fragment.appendChild(cover);
 			// main element
 			element = document.createElement("section");
 			element.setAttribute("id", "alertify");
 			element.className = "alertify alertify-hidden";
-			document.body.appendChild(element);
+			fragment.appendChild(element);
 			// main element
 			logElement = document.createElement("section");
 			logElement.setAttribute("id", "alertifylogs");
 			logElement.className = "alertify-logs";
-			document.body.appendChild(logElement);
+			fragment.appendChild(logElement);
+			document.body.appendChild(fragment);
 			// clean up init method
 			delete this.init;
 		};
